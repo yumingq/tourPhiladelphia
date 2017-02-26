@@ -1,153 +1,14 @@
 package com.yumingqin.walkphilly;
 
-//import android.content.pm.PackageManager;
-//import android.location.Location;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v4.app.FragmentActivity;
-//import android.os.Bundle;
-//import android.support.v4.content.ContextCompat;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
-//
-//import com.google.android.gms.maps.CameraUpdateFactory;
-//import com.google.android.gms.maps.GoogleMap;
-//import com.google.android.gms.maps.OnMapReadyCallback;
-//import com.google.android.gms.maps.SupportMapFragment;
-//import com.google.android.gms.maps.model.LatLng;
-//import com.google.android.gms.maps.model.MarkerOptions;
-//
-//public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-//
-//    private GoogleMap mMap;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-////        setUpMapIfNeeded();
-//        setContentView(R.layout.activity_maps);
-//        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
-//
-//    }
-//
-//
-//    /**
-//     * Manipulates the map once available.
-//     * This callback is triggered when the map is ready to be used.
-//     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-//     * we just add a marker near Sydney, Australia.
-//     * If Google Play services is not installed on the device, the user will be prompted to install
-//     * it inside the SupportMapFragment. This method will only be triggered once the user has
-//     * installed Google Play services and returned to the app.
-//     */
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(39.9415, -75.1995);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.9415, -75.1995), 12.0f));
-//    }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_game, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle item selection
-//        switch (item.getItemId()) {
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-//    public boolean checkLocationPermission(){
-//        if (ContextCompat.checkSelfPermission(this,
-//                android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED) {
-//
-//            // Asking user if explanation is needed
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-//                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-//
-//                // Show an expanation to the user *asynchronously* -- don't block
-//                // this thread waiting for the user's response! After the user
-//                // sees the explanation, try again to request the permission.
-//
-//                //Prompt the user once explanation has been shown
-//                ActivityCompat.requestPermissions(this,
-//                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-//                        MY_PERMISSIONS_REQUEST_LOCATION);
-//
-//
-//            } else {
-//                // No explanation needed, we can request the permission.
-//                ActivityCompat.requestPermissions(this,
-//                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-//                        MY_PERMISSIONS_REQUEST_LOCATION);
-//            }
-//            return false;
-//        } else {
-//            return true;
-//        }
-//    }
-//
-//    public void setUpMapIfNeeded() {
-//        // Do a null check to confirm that we have not already instantiated the map.
-//        if (mMap == null) {
-//            // Try to obtain the map from the SupportMapFragment.
-//            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-//                    .getMap();
-//            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                mMap.setMyLocationEnabled(true);
-//                // Check if we were successful in obtaining the map.
-//                if (mMap != null) {
-//
-//
-//                    mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-//
-//                        @Override
-//                        public void onMyLocationChange(Location arg0) {
-//                            // TODO Auto-generated method stub
-//
-//                            mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
-//                        }
-//                    });
-//
-//                }
-//            } else {
-//
-//            }
-//        }
-//    }
-//
-//
-//}
-import com.google.android.gms.maps.model.PolylineOptions;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -161,6 +22,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -176,13 +38,26 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class PathMapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
-    public static int onThisLoc;
-    public static double totalDist;
+    TextView description;
     private GoogleMap mMap;
     ArrayList<LatLng> MarkerPoints;
     GoogleApiClient mGoogleApiClient;
@@ -193,7 +68,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_path_maps);
+
+        description = (TextView) findViewById(R.id.textView3);
+        description.setText(MainActivity.points.get(MapsActivity.onThisLoc + 1).getDescription());
+        System.out.println(MainActivity.points.get(MapsActivity.onThisLoc + 1).getDescription());
+        description.setTextColor(Color.WHITE);
+        description.setVisibility(View.VISIBLE);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -234,88 +115,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setMyLocationEnabled(true);
         }
 
-//        // Setting onclick event listener for the map
-//        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-//
-//            @Override
-//            public void onMapClick(LatLng point) {
-//
-//                // Already two locations
-//                if (MarkerPoints.size() > 1) {
-//                    MarkerPoints.clear();
-//                    mMap.clear();
-//                }
-//
-//                // Adding new item to the ArrayList
-//                MarkerPoints.add(point);
-//
-//                // Creating MarkerOptions
-                MarkerOptions currentOptions = new MarkerOptions();
-                MarkerOptions options = new MarkerOptions();
-//
-//                // Setting the position of the marker
-//                options.position(point);
-//
-//                /**
-//                 * For the start location, the color of marker is GREEN and
-//                 * for the end location, the color of marker is RED.
-//                 */
-//                if (MarkerPoints.size() == 1) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-//                } else if (MarkerPoints.size() == 2) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//                }
-//
-//
-//                // Add new marker to the Google Map Android API V2
-//                mMap.addMarker(options);
-//
-//                // Checks, whether start and end locations are captured
-//                if (MarkerPoints.size() >= 2) {
-//                    LatLng origin = MarkerPoints.get(0);
-//                    LatLng dest = MarkerPoints.get(1);
-//
-//                    // Getting URL to the Google Directions API
-//                    String url = getUrl(origin, dest);
-//                    Log.d("onMapClick", url.toString());
-//                    FetchUrl FetchUrl = new FetchUrl();
-//
-//                    // Start downloading json data from Google Directions API
-//                    FetchUrl.execute(url);
-//                    //move map camera
-//                    mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
-//                    mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-//                }
-//
-//            }
-//        });
+        MarkerOptions currentOptions = new MarkerOptions();
+        MarkerOptions options = new MarkerOptions();
 
 
 //                if (MarkerPoints.size() >= 2) {
-                    for(int i = 0; i < MainActivity.points.size() - 1; i++){
-                        LatLng current = new LatLng(MainActivity.points.get(i).getLat(),MainActivity.points.get(i).getLongit());
-                        LatLng next = new LatLng(MainActivity.points.get(i+1).getLat(),MainActivity.points.get(i+1).getLongit());
+            int i = MapsActivity.onThisLoc;
+            LatLng current = new LatLng(MainActivity.points.get(i).getLat(), MainActivity.points.get(i).getLongit());
+            LatLng next = new LatLng(MainActivity.points.get(i + 1).getLat(), MainActivity.points.get(i + 1).getLongit());
 //                    LatLng origin = MarkerPoints.get(0);
 //                    LatLng dest = MarkerPoints.get(1);
-                        currentOptions.position(current);
-                        mMap.addMarker(currentOptions);
-                        options.position(next);
-                        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-                        mMap.addMarker(options);
+            currentOptions.position(current);
+            mMap.addMarker(currentOptions);
+            options.position(next);
+            options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+            mMap.addMarker(options);
 
-                        // Getting URL to the Google Directions API
+            // Getting URL to the Google Directions API
 //                    String url = getUrl(origin, dest);
-                        String url = getUrl(current, next);
-                        Log.d("onMapClick", url.toString());
-                        FetchUrl FetchUrl = new FetchUrl();
-                        System.out.println(MainActivity.points.get(i).getName() + "\t" + MainActivity.points.get(i+1).getName());
+            String url = getUrl(current, next);
+            Log.d("onMapClick", url.toString());
+            FetchUrl FetchUrl = new FetchUrl();
+            System.out.println(MainActivity.points.get(i).getName() + "\t" + MainActivity.points.get(i + 1).getName());
 
-                        // Start downloading json data from Google Directions API
-                        FetchUrl.execute(url);
-                        //move map camera
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
-                        mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
-                    }
+            // Start downloading json data from Google Directions API
+            FetchUrl.execute(url);
+            //move map camera
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+
 
 
 
@@ -323,9 +151,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    public void onLaunchButtonClick(View view){
-        onThisLoc = 0;
-        totalDist = MainActivity.points.get(MapsActivity.onThisLoc + 1).getDistance() *10;
+    public void onLaunchShareClick(View view){
+        Intent i = new Intent(this, ShareActivity.class);
+        startActivity(i);
+    }
+
+    public void onLaunchNextClick(View view){
+        MapsActivity.onThisLoc++;
+        MapsActivity.totalDist += 10 * MainActivity.points.get(MapsActivity.onThisLoc + 1).getDistance();
         Intent i = new Intent(this, PathMapsActivity.class);
         startActivity(i);
     }
@@ -627,4 +460,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // You can add here other case statements according to your requirement.
         }
     }
+
 }

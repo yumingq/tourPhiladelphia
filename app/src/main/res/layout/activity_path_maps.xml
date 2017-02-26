@@ -1,0 +1,52 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PathMapsActivity" >
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        tools:context="com.yumingqin.walkphilly.PathMapsActivity"/>
+
+    <Button
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:id="@+id/button1"
+        android:onClick="onLaunchNextClick"
+        />
+
+    <Button
+        android:text="Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:id="@+id/button2"
+        android:onClick="onLaunchShareClick"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_below="@+id/map"
+        android:layout_gravity="bottom"
+        android:fillViewport="false"
+        android:visibility="visible">
+        <TextView
+            android:text="TextView"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:visibility="invisible" />
+    </ScrollView>
+
+
+</FrameLayout>

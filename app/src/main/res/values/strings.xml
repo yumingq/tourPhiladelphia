@@ -8,12 +8,13 @@
     <string name="restart">Restart</string>
 
     <string name="locs_prompt">Choose the number of locations:</string>
-    <string name="welcome_message">Welcome to Walk Philly!:</string>
+    <string name="welcome_message">Get ready to tourPhilly!</string>
     <string-array name="locations">
         <item>5</item>
         <item>10</item>
         <item>15</item>
     </string-array>
+    <string name="title_activity_path_maps">Map</string>
 
 
     <!--<string-array name="menu]">-->
